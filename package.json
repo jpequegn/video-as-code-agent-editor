@@ -1,0 +1,45 @@
+{
+  "name": "video-as-code-agent-editor",
+  "version": "0.1.0",
+  "description": "Reproducible, sandboxed video editing pipeline",
+  "type": "module",
+  "bin": {
+    "vace": "dist/cli.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "vace": "tsx src/cli.ts",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm test"
+  },
+  "keywords": [
+    "video",
+    "remotion",
+    "agent",
+    "ffmpeg"
+  ],
+  "author": "Julien Pequegnot",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^14.0.1",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "@types/node": "^24.3.0",
+    "eslint": "^9.34.0",
+    "globals": "^16.3.0",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.41.0",
+    "vitest": "^3.2.4"
+  }
+}
