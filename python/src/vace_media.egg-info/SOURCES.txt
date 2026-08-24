@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+python/src/vace_media/__init__.py
+python/src/vace_media.egg-info/PKG-INFO
+python/src/vace_media.egg-info/SOURCES.txt
+python/src/vace_media.egg-info/dependency_links.txt
+python/src/vace_media.egg-info/top_level.txt
