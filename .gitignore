@@ -5,6 +5,7 @@ dist/
 .ruff_cache/
 __pycache__/
 *.pyc
+*.egg-info/
 artifacts/
 .vace/
 .DS_Store

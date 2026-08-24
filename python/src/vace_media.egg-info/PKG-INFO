@@ -1,7 +1,0 @@
-Metadata-Version: 2.4
-Name: vace-media
-Version: 0.1.0
-Summary: Deterministic media analysis helpers for video-as-code-agent-editor
-Requires-Python: >=3.12
-License-File: LICENSE
-Dynamic: license-file
