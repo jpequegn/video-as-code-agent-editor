@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "caseId": "clean-talk",
+  "title": "Clean single-take edit",
+  "expectedCuts": [{ "sourceStartSeconds": 0, "sourceEndSeconds": 3, "toleranceSeconds": 0.04 }],
+  "duration": { "minimumSeconds": 2.9, "maximumSeconds": 3.1 },
+  "requiredCaptions": ["deterministic opening", "second line"],
+  "expectedQaFailures": [],
+  "expectedVerdict": "pass",
+  "baselineMinutes": 15,
+  "actualMinutes": 2,
+  "reworkCount": 0
+}

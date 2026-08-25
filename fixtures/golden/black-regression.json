@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "caseId": "black-regression",
+  "title": "Black-frame regression",
+  "expectedCuts": [{ "sourceStartSeconds": 0, "sourceEndSeconds": 1, "toleranceSeconds": 0.04 }],
+  "duration": { "minimumSeconds": 0.9, "maximumSeconds": 1.1 },
+  "requiredCaptions": [],
+  "expectedQaFailures": ["black_frames"],
+  "expectedVerdict": "fail",
+  "baselineMinutes": 10,
+  "actualMinutes": 2,
+  "reworkCount": 1
+}
