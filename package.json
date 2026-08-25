@@ -29,6 +29,7 @@
   "license": "MIT",
   "dependencies": {
     "@remotion/bundler": "^4.0.516",
+    "@remotion/renderer": "^4.0.516",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",
     "commander": "^14.0.1",

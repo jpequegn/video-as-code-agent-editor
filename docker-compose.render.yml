@@ -1,0 +1,15 @@
+services:
+  renderer:
+    build:
+      context: .
+      dockerfile: Dockerfile.render
+    network_mode: none
+    read_only: true
+    user: "10001:10001"
+    cpus: 2
+    mem_limit: 2g
+    pids_limit: 256
+    volumes:
+      - ./remotion/public:/workspace/public:ro
+      - ./artifacts:/workspace/artifacts:ro
+      - ./render-output:/workspace/output:rw
