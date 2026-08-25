@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "caseId": "silent-regression",
+  "title": "Silent audio regression",
+  "expectedCuts": [{ "sourceStartSeconds": 0, "sourceEndSeconds": 1, "toleranceSeconds": 0.04 }],
+  "duration": { "minimumSeconds": 0.9, "maximumSeconds": 1.1 },
+  "requiredCaptions": [],
+  "expectedQaFailures": ["silence"],
+  "expectedVerdict": "warn",
+  "baselineMinutes": 10,
+  "actualMinutes": 3,
+  "reworkCount": 1
+}
