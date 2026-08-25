@@ -2,3 +2,5 @@ dist
 node_modules
 artifacts
 uv.lock
+**/* 2
+**/* 2.*

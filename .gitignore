@@ -9,3 +9,6 @@ __pycache__/
 artifacts/
 .vace/
 .DS_Store
+# macOS/iCloud conflict copies created beside tracked files.
+**/* 2
+**/* 2.*
