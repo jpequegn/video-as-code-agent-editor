@@ -16,8 +16,11 @@ export function computePlanId(plan: Omit<CreativePlan, "planId">): string {
 export function draftPlan(manifest: MediaManifest, options: DraftOptions): CreativePlan {
   const template = options.template ?? "concise-talk";
   const transcript = manifest.transcript;
-  const start = transcript[0]?.startSeconds ?? 0;
-  const end = transcript.at(-1)?.endSeconds ?? manifest.durationSeconds;
+  const start = template === "full-take" ? 0 : (transcript[0]?.startSeconds ?? 0);
+  const end =
+    template === "full-take"
+      ? manifest.durationSeconds
+      : (transcript.at(-1)?.endSeconds ?? manifest.durationSeconds);
   const boundedEnd = Math.min(end, manifest.durationSeconds);
   const duration = boundedEnd - start;
   const captions = transcript.map((segment, index) => ({

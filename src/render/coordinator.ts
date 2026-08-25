@@ -6,17 +6,9 @@ import type { CompositionManifest } from "../composition/schema.js";
 import type { RenderAdapter } from "./adapters.js";
 import type { RenderLedger } from "./ledger.js";
 import { resolveOutputFile, validateRenderRoots, type RenderRoots } from "./paths.js";
-import type { RenderJob } from "./schema.js";
+import type { RenderJob, RenderReceipt } from "./schema.js";
 
-export interface RenderReceipt {
-  schemaVersion: 1;
-  jobId: string;
-  compositionId: string;
-  outputFile: string;
-  outputHash: string;
-  rendererMode: RenderJob["mode"];
-  finalEventHash: string;
-}
+export type { RenderReceipt } from "./schema.js";
 
 export class RenderCoordinator {
   public constructor(
