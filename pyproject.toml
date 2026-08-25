@@ -5,6 +5,13 @@ description = "Deterministic media analysis helpers for video-as-code-agent-edit
 requires-python = ">=3.12"
 dependencies = []
 
+[build-system]
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+vace-media-analyze = "vace_media.analyze:main"
+
 [dependency-groups]
 dev = [
   "pytest>=8.4.1",
