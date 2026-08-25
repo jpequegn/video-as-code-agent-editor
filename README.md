@@ -17,7 +17,7 @@ and CI are available; media commands will be added in the following issues.
 - Node.js 22 or newer
 - Python 3.12
 - [uv](https://docs.astral.sh/uv/)
-- FFmpeg and ffprobe 7 or newer
+- FFmpeg and ffprobe 5 or newer
 - Docker 27 or newer for the optional isolated renderer
 
 ## Development
