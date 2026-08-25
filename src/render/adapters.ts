@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 import { selectComposition, renderMedia } from "@remotion/renderer";
@@ -33,8 +33,24 @@ export class FakeRenderAdapter implements RenderAdapter {
   }
 }
 
+export class FixtureCopyAdapter implements RenderAdapter {
+  public constructor(private readonly sourcePath: string) {}
+
+  public async render(_job: RenderJob, context: RenderAdapterContext): Promise<void> {
+    await mkdir(path.dirname(context.outputPath), { recursive: true });
+    await copyFile(this.sourcePath, context.outputPath);
+  }
+}
+
+export function resolveBrowserOptions(browserExecutable: string | undefined) {
+  return browserExecutable
+    ? { browserExecutable, chromeMode: "chrome-for-testing" as const }
+    : { browserExecutable: null };
+}
+
 export class LocalRemotionAdapter implements RenderAdapter {
   public async render(_job: RenderJob, context: RenderAdapterContext): Promise<void> {
+    const browserOptions = resolveBrowserOptions(process.env.REMOTION_BROWSER_EXECUTABLE);
     const serveUrl = await bundleComposition({
       entryPoint: context.entryPoint,
       outDir: context.bundleRoot,
@@ -43,7 +59,8 @@ export class LocalRemotionAdapter implements RenderAdapter {
     const composition = await selectComposition({
       serveUrl,
       id: "VideoEdit",
-      inputProps: context.composition
+      inputProps: context.composition,
+      ...browserOptions
     });
     await mkdir(path.dirname(context.outputPath), { recursive: true });
     await renderMedia({
@@ -52,7 +69,8 @@ export class LocalRemotionAdapter implements RenderAdapter {
       codec: "h264",
       outputLocation: context.outputPath,
       inputProps: context.composition,
-      overwrite: false
+      overwrite: false,
+      ...browserOptions
     });
   }
 }
